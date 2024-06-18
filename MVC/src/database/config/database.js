@@ -1,34 +1,11 @@
-module.exports = {
-  development: {
-    username: 'root',
-    password: null,
-    database: 'database_development',
-    host: '127.0.0.1',
-    dialect: 'mysql',
-    operatorsAliases: 0,
-    define: {
-      timestamp: true,
-      underscored: true
-    },
-    pool: {
-      max: 5,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    }
-  },
-  test: {
-    username: '',
-    password: '',
-    database: '',
-    host: '',
-    dialect: ''
-  },
-  production: {
-    username: '',
-    password: '',
-    database: '',
-    host: '',
-    dialect: ''
-  }
-};
+import { Pool } from 'pg';
+
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'pasteleriaDBagenda',
+  password: '3312',
+  port: 5431,
+});
+
+export default pool;

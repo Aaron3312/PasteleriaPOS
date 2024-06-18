@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "punto de venta de pasteleria",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "doc": "doc",
     "test": "test"
@@ -14,5 +15,13 @@
     "POS"
   ],
   "author": "aaron hernandez jimenez",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "express-session": "^1.18.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.7.0"
+  }
 }

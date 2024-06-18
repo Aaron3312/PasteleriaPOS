@@ -1,0 +1,49 @@
+CREATE TABLE Roles (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    permisos TEXT
+);
+
+CREATE TABLE Usuarios (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    correo VARCHAR(255) UNIQUE NOT NULL,
+    contraseña VARCHAR(255) NOT NULL,
+    rol_id INT,
+    FOREIGN KEY (rol_id) REFERENCES Roles(id)
+);
+
+CREATE TABLE Productos (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(255) NOT NULL,
+    precio DECIMAL NOT NULL,
+    stock INT NOT NULL
+);
+
+CREATE TABLE Ventas (
+    id SERIAL PRIMARY KEY,
+    fecha TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    total DECIMAL NOT NULL
+);
+
+CREATE TABLE DetallesVenta (
+    venta_id INT,
+    producto_id INT,
+    cantidad INT,
+    precio DECIMAL,
+    FOREIGN KEY (venta_id) REFERENCES Ventas(id),
+    FOREIGN KEY (producto_id) REFERENCES Productos(id)
+);
+
+CREATE TABLE Agenda (
+    id SERIAL PRIMARY KEY,
+    fecha TIMESTAMP NOT NULL,
+    producto_id INT,
+    dedicatoria TEXT,
+    decorado TEXT,
+    sabor VARCHAR(255),
+    anticipo DECIMAL,
+    estado VARCHAR(50),
+    FOREIGN KEY (producto_id) REFERENCES Productos(id)
+);
+

@@ -1,0 +1,41 @@
+Crear un archivo docker-compose.yml
+Vamos a utilizar Docker Compose para facilitar la gestión del contenedor de PostgreSQL. Crea un archivo llamado docker-compose.yml en la raíz de tu proyecto con el siguiente contenido:
+
+
+
+services:
+  db:
+    image: postgres:latest
+    container_name: pasteleriaDB
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: pasteleriaDBagenda
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 3312
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5431:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+
+
+
+
+
+ Iniciar el contenedor
+Abre una terminal en el directorio donde se encuentra el archivo docker-compose.yml y ejecuta el siguiente comando para iniciar el contenedor:
+
+docker-compose up -d
+
+tenia un error chistoso
+con esto lo encontre
+docker-compose down
+docker-compose up -d
+docker-compose logs -f db
+
+con esto se resolvio el error
+docker-compose down -v  # El flag -v elimina los volúmenes asociados
+docker-compose up -d

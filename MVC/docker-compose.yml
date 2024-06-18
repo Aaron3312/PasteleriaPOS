@@ -1,0 +1,18 @@
+
+services:
+  db:
+    image: postgres:latest
+    container_name: pasteleriaDB
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: pasteleriaDBagenda
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 3312
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - "5431:5432"
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
