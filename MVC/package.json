@@ -1,0 +1,18 @@
+{
+  "name": "pasteleria_pos",
+  "version": "1.0.0",
+  "description": "punto de venta de pasteleria",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "keywords": [
+    "POS"
+  ],
+  "author": "aaron hernandez jimenez",
+  "license": "ISC"
+}
